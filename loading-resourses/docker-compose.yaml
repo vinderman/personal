@@ -1,1 +1,27 @@
-services:  nginx:    image: kalmyk-entrypoint    ports:      - 80:80      - 443:443    build:      context: nginx      dockerfile: ../nginx/Dockerfile    networks:      main:        aliases:          - nginx  kalmyk-backend:    image: kalmyk-backend    ports:      - 5000:5000    build:      context: backend      dockerfile: ../backend/Dockerfile    networks:      main:        aliases:          - backendnetworks:  main:
+services:
+  nginx:
+    image: kalmyk-entrypoint
+    ports:
+      - 80:80
+      - 443:443
+    build:
+      context: nginx
+      dockerfile: ../nginx/Dockerfile
+    networks:
+      main:
+        aliases:
+          - nginx
+
+  kalmyk-backend:
+    image: kalmyk-backend
+    ports:
+      - 5000:5000
+    build:
+      context: backend
+      dockerfile: ../backend/Dockerfile
+    networks:
+      main:
+        aliases:
+          - backend
+networks:
+  main:
